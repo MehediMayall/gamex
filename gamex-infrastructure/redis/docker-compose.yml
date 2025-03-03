@@ -1,0 +1,18 @@
+services:
+  redis:
+    image: redis:8.0-M02-alpine
+    container_name: gplay-redis_service
+    ports:
+      - "6379:6379"  # Expose Redis default port
+    environment:
+      - TZ=Asia/Dhaka
+    restart: always
+#    storage_opt:
+#      size: "1G"     # Limit disk usage to 1GB
+    deploy:
+      resources:
+        limits:
+          memory: 20G       # Limit memory usage to 1GB
+          cpus: '12'      # Limit CPU usage to 1.5 core
+    volumes:
+      - /var/www/gplay/redis-rabbitmq/redis_data:/data  # Map Redis data to the host directory

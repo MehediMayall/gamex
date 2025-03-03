@@ -1,0 +1,14 @@
+services:
+
+  gplay.seq:
+    container_name: gplay.seq
+    image: datalust/seq:latest
+    labels:
+      - gplay.seq
+    restart: always
+    ports:
+      - 5341:5341
+      - 5080:80
+
+    environment:
+      - ACCEPT_EULA=Y

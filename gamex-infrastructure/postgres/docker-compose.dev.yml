@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:17-alpine3.20
+    labels:
+      - gplay-postgres
+    container_name: gplay-postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=Un*X8#acR0Tk1BzP
+      - POSTGRES_USER=gplayDev
+      - POSTGRES_DB=userdb
+      - TZ=Asia/Dhaka
+    restart: always
+    volumes:
+      - C:\PROJECTS\GPlay\storages\postgres_data:/var/lib/postgresql/data
+
+#    storage_opt:
+#      size: "1G"     # Limit disk usage to 1GB
+    deploy:
+      resources:
+        limits:
+          memory: 10G       # Limit memory usage to 1GB
+          cpus: '8'      # Limit CPU usage to 1.5 core

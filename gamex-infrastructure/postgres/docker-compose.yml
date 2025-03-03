@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:17-alpine3.20
+    labels:
+      - gplay-postgres
+    container_name: gplay-postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=Un*X8#acR0Tk1BzP
+      - POSTGRES_USER=gplayDev
+      - POSTGRES_DB=userdb
+      - TZ=Asia/Dhaka
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+#    storage_opt:
+#      size: "1G"     # Limit disk usage to 1GB
+    deploy:
+      resources:
+        limits:
+          memory: 1G       # Limit memory usage to 1GB
+          cpus: '1.5'      # Limit CPU usage to 1.5 core
+
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /var/www/gplay/database/postgres_data
+      o: bind
