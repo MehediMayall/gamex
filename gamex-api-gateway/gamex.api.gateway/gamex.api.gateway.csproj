@@ -10,7 +10,7 @@
 
   <ItemGroup>
  
-    <PackageReference Include="gamex.Common" Version="1.1.24" />
+    <PackageReference Include="GPlay.Common" Version="1.2.4" />
  
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.RateLimiting" Version="7.0.0-rc.2.22476.2" />
