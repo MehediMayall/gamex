@@ -1,0 +1,1 @@
+dotnet publish ./gamex.ApiGateway/gamex.ApiGateway.csproj -c Release -o ./app

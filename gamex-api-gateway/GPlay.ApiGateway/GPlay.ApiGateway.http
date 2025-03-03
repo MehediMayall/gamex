@@ -1,0 +1,112 @@
+# @host = http://localhost:3100/api
+# @host = https://devgamexapi.gakktechnology.com/api
+@host = http://localhost:5071/api
+# @host = http://192.168.101.14:5072
+@Token = eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxZDlmYjM2My03OGU2LTRiYTYtYTE0Mi1hM2EyNGQ0ZDBlMTciLCJhdWQiOlsiZ3BsYXkuZ2FtZSIsIkdQbGF5LkF1dGguU2VydmljZSJdLCJleHAiOjE3MzE1NjE2MzcsImlzcyI6IkdQbGF5LkF1dGguU2VydmljZSJ9.NK0mBFm5IFOzfRgHxIB0TXPiicioEwhKbIyz5d3bBxA
+
+### 
+//http://192.168.101.14:5071/
+//http://192.168.101.14:5070/ -- RabbitMq
+//http://192.168.101.14:6379/ -- Redis
+
+
+// ---------------- API Gateway ------------------------------
+
+### Index
+GET {{host}}
+Accept: application/json
+
+
+### Welcome
+GET {{host}}/welcome
+Accept: application/json
+
+### Health
+GET {{host}}/health
+Accept: application/json
+
+
+### Log
+GET {{host}}/logs/
+Accept: application/json
+
+
+
+// ------------------ AUTH Service --------------------------------
+
+### Index
+GET {{host}}/auth
+Accept: application/json
+
+### Health
+GET {{host}}/auth/health
+Accept: application/json
+
+
+### Login
+POST {{host}}/auth/token
+Content-Type: application/json
+
+{
+    "email":"mayall@gakktechnology.com",
+    "password": "123456"
+}
+
+
+
+### Register
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+    "firstname":"Mehedi",
+    "lastname":"Hasan",
+    "mobile":"5554443333",
+    "dateofbirth":"1998-09-25",
+    "email":"mehedi.sun@gmail.com",
+    "password": "2342343"
+}
+
+// -------------- GAME PLAY -------------------------------------
+
+### Index
+GET {{host}}/play
+Accept: application/json
+
+### Health
+GET {{host}}/play/health
+Accept: application/json
+
+### Auth Check
+GET {{host}}/play/auth-check
+Accept: application/json
+Authorization: Bearer {{Token}}
+
+// -------------- Notification -------------------------------------
+
+### Index
+GET {{host}}/notification
+Accept: application/json
+
+### Health
+GET {{host}}/notification/health
+Accept: application/json
+
+
+
+
+// ------------------ Win Service --------------------------------
+
+### Index
+GET {{host}}/win
+Accept: application/json
+
+### Health
+GET {{host}}/win/health
+Accept: application/json
+
+
+### lakhopoti
+
+GET {{host}}/win/lakhopoti/2
+Accept: application/json
