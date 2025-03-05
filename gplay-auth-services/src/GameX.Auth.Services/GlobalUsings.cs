@@ -1,0 +1,21 @@
+global using MediatR;
+
+global using gamex.Common;
+global using gamex.Auth.Contracts;
+global using gamex.Auth.Services;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using System.Text;
+global using Microsoft.Extensions.Options;
+global using FluentValidation;
+global using gamex.Common.MassTransit;
+global using Serilog;
+global using gamex.Common.Extensions;
+global using System.Reflection;
+global using Microsoft.EntityFrameworkCore;
+global using System.Text.Json;
+global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.DataProtection;

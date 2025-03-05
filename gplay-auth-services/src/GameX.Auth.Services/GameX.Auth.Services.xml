@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>gamex.Auth.Services</name>
+    </assembly>
+    <members>
+        <member name="T:gamex.Auth.Services.Migrations.initial">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:gamex.Auth.Services.Migrations.usernameadded">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.usernameadded.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.usernameadded.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.usernameadded.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:gamex.Auth.Services.Migrations.added_dateofbirth">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_dateofbirth.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_dateofbirth.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_dateofbirth.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:gamex.Auth.Services.Migrations.added_UserLogActivity">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_UserLogActivity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_UserLogActivity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_UserLogActivity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:gamex.Auth.Services.Migrations.added_city_country_avatar">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_city_country_avatar.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_city_country_avatar.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_city_country_avatar.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:gamex.Auth.Services.Migrations.added_updatedbyid">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_updatedbyid.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_updatedbyid.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.Migrations.added_updatedbyid.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:gamex.Auth.Services.UserProfileEndpoint.UserProfile(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+            Get logged user profile
+            </summary>
+            <returns>Firstname, lastname, email, mobile and email</returns>
+        </member>
+    </members>
+</doc>

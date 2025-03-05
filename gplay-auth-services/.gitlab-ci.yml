@@ -1,0 +1,6 @@
+run_tests:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    before_script:
+        - apt-get update
+    script:
+        - dotnet test

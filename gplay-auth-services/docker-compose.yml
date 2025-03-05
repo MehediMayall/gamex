@@ -1,0 +1,112 @@
+services:
+
+  # CLUSTER - 1
+  gamex-auth-5072:
+    container_name: gamex-auth-5072
+    # hostname: gamex-auth-services
+    labels:
+      - gamex-auth-services
+    image: gamex-auth-5072
+    build:
+      context: .
+      dockerfile: Dockerfile
+    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=production
+      - ASPNETCORE_HTTP_PORTS=3100
+      - ASPNETCORE_HTTP_PORTS=3101
+      - TZ=Asia/Dhaka
+
+    ports:
+      - "5072:3300"
+    restart: always
+    volumes:
+      - log_data:/log
+      - gamex_auth_attachments:/attachments
+
+    logging:
+        options:
+          max-size: 10m
+    deploy:
+      resources:
+        limits:
+          memory: 512M       # Limit memory usage to 512MB
+          cpus: '0.50'       # Limit CPU usage to 50% of one core
+  
+
+  # CLUSTER - 2
+  gamex-auth-6072:
+    container_name: gamex-auth-6072
+    # hostname: gamex-auth-services
+    labels:
+      - gamex-auth-services
+    image: gamex-auth-5072
+    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=production
+      - ASPNETCORE_HTTP_PORTS=3100
+      - ASPNETCORE_HTTP_PORTS=3101
+      - TZ=Asia/Dhaka
+
+    ports:
+      - "6072:3300"
+    restart: always
+    volumes:
+      - log_data:/log
+      - gamex_auth_attachments:/attachments
+
+    logging:
+        options:
+          max-size: 10m
+    deploy:
+      resources:
+        limits:
+          memory: 512M       # Limit memory usage to 512MB
+          cpus: '0.50'       # Limit CPU usage to 50% of one core
+
+
+  # CLUSTER - 3
+  gamex-auth-7072:
+    container_name: gamex-auth-7072
+    # hostname: gamex-auth-services
+    labels:
+      - gamex-auth-services
+    image: gamex-auth-5072
+    
+    environment:
+      - ASPNETCORE_ENVIRONMENT=production
+      - ASPNETCORE_HTTP_PORTS=3100
+      - ASPNETCORE_HTTP_PORTS=3101
+      - TZ=Asia/Dhaka
+
+    ports:
+      - "7072:3300"
+    restart: always
+    volumes:
+      - log_data:/log
+      - gamex_auth_attachments:/attachments
+      
+    logging:
+        options:
+          max-size: 10m
+    deploy:
+      resources:
+        limits:
+          memory: 512M       # Limit memory usage to 512MB
+          cpus: '0.50'       # Limit CPU usage to 50% of one core
+
+
+volumes:
+  log_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/www/gamex/app_logs
+
+  gamex_auth_attachments:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /var/www/gamex/auth_attachments

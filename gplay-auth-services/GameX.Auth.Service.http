@@ -1,0 +1,224 @@
+@host = http://localhost:3300
+# @host = http://192.168.1.193:5071/api/auth
+# @host = http://192.168.1.193:5072
+# @host = https://devapi.onegames.online/api/auth
+@userid = 447917d1-5c2c-46a4-a22f-6ddd8a98299a
+
+
+### Health
+GET {{host}}/health
+Accept: application/json
+
+
+### Welcome
+GET {{host}}/welcome
+Accept: application/json
+
+### Index
+GET {{host}}
+Accept: application/json
+
+
+### Metrics
+GET {{host}}/metrics
+Accept: application/json
+
+
+### Register
+
+# @name register 
+POST {{host}}/signup/request
+Content-Type: application/json
+
+{
+    "firstname":"Mehedi",
+    "lastname":"Mayall",
+    "mobile":"",
+    "dateofbirth":"2001-09-25",
+    "email":"mayall@gakktechnology.com",
+    "password": "123456"
+}
+
+
+
+### Signup Complete
+POST {{host}}/signup/complete
+Content-Type: application/json
+
+{
+    "userid": "{{register.response.body.$.data.userId}}",
+    "otp": "561304"
+}
+
+
+
+### OTP Resend
+POST {{host}}/otp/resend
+Content-Type: application/json
+
+{
+    "userid": "24e3adeb-a85f-4604-bef1-dfb649e321f2",
+    "resendtype": "LOGIN"
+}
+
+
+### OTP Verify
+POST {{host}}/otp/verify
+Content-Type: application/json
+
+{
+    "userid": "{{register.response.body.$.data.userId}}",
+    "otp": "31296"
+}
+
+
+### Password Reset Request
+POST {{host}}/password/reset/request
+Content-Type: application/json
+
+{
+    "mobile":"",
+    "email":"mayall@gakktechnology.com"
+}
+
+
+### Password Reset
+POST {{host}}/password/reset
+Content-Type: application/json
+
+{
+    "userid": "{{register.response.body.$.data.userId}}",
+    "resendtype": "LOGIN"
+}
+
+### Password Change
+POST {{host}}/password/change
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+{
+    "currentpassword": "123456",
+    "newpassword": ".23423423"
+}
+
+
+### Profile Update
+PUT {{host}}/user/profile
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+{
+    "firstname":"Mehedi",
+    "lastname":"Mayall",
+    "mobile":"",
+    "dateofbirth":"2001-09-25",
+    "email":"mayall@gakktechnology.com",
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "avatername": "test",
+    "username": "EarnestOrbit36"
+}
+
+
+
+### Login
+# @name login 
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "email":"mayall@gakktechnology.com",
+    "mobile": "",
+    "password": "123456",
+    "agentdetails":"MTE4LjY3LjIxOS4xMzEvL01vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzMuMC4wLjAgU2FmYXJpLzUzNy4zNi8vV2luMzIgKEdvb2dsZSBJbmMuKS8v"
+}
+
+
+### MyGP SSO Login
+# @name login 
+POST {{host}}/gp/sso/login
+Content-Type: application/json
+
+{
+    "msisdn":"01770069013",
+    "clientid": "K931D6T7LN",
+    "clientsecret": "31FBH64L8EHG201EKLXI25VWVNLP29R7"
+}
+
+
+### GP Skitto SSO Login
+# @name login 
+POST {{host}}/gp/sso/login
+Content-Type: application/json
+
+{
+    "msisdn":"01770069013",
+    "clientid": "Y35LCEHKLR",
+    "clientsecret": "PTFXHR5N513RZX3WOAPKZT496J0DJ4E6"
+}
+
+
+### Verify login
+POST {{host}}/sso/login/complete
+Content-Type: application/json
+
+{
+    "parameter":"UHczUlRJT2Nha0puUFA0UkpiejFnVVF5MVJYbVg3R0FDK3ZjRkRZZjhkbjN6enJMTFVQT3B5VE9KdUVTZzlMVXFFeFNFWm5VZWE3NkwrQ2FpMjAxL0xuOGtmNXVhSEdy",
+    "agentdetails":"MTE4LjY3LjIxOS4xMzEvL01vemlsbGEvNS4wIChXaW5kb3dzIE5UIDEwLjA7IFdpbjY0OyB4NjQpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS8xMzMuMC4wLjAgU2FmYXJpLzUzNy4zNi8vV2luMzIgKEdvb2dsZSBJbmMuKS8v"
+
+}
+
+
+
+
+### User Profile
+GET {{host}}/user/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ7XCJVc2VySWRcIjpcIjJmNDIzMWI0LTVlNzAtNGY3ZC04Y2VlLTIxNmY1NDcyOGE5MlwiLFwiUGxheWVySWRcIjpcImZiZDExOTM3LTZiY2MtNGMzNy05MzhmLTEwMWZiY2M0ZTVlYVwifSIsImF1ZCI6WyJncGxheS5nYW1lIiwiZ3BsYXkuYXV0aC5zZXJ2aWNlcyJdLCJleHAiOjE3MzkxNzQzMDIsImlzcyI6ImdwbGF5LmF1dGguc2VydmljZXMifQ.a8yU5EYc6umTKGI1r9_Ht6Zwww1bPo-6GFFOwKXqPcg
+
+
+### Logout
+POST {{host}}/logout
+Content-Type: application/json
+
+
+
+### Country List
+GET {{host}}/country/list
+Content-Type: application/json
+# Authorization: Bearer {{login.response.body.$.data.token}}
+
+
+
+### Bug Reporting
+POST {{host}}/bug/reporting
+Content-Type: application/json
+
+[{
+    "message": "API failure!",
+    "type": "UnhandledRejection",
+    "stack": "Error: API failure! at ...",
+    "level": "High"
+}]
+
+
+
+### Database Migrate
+GET {{host}}/database/migrate
+Content-Type: application/json
+
+
+### Generate Code 
+GET {{host}}/generate/code/10
+Content-Type: application/json
+
+
+
+### Profile Image Upload
+POST {{host}}/profile/image/upload
+Content-Type: application/json
+Authorization: Bearer {{login.response.body.$.data.token}}
+
+{
+    "imageinbase64": ""
+}
