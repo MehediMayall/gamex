@@ -1,1 +1,1 @@
-dotnet publish ./gamex.api.gateway/gamex.api.gateway.csproj -c Release -o ./app
+dotnet publish ./gamex.api.gateway/gamex.api.gateway.csproj -c Release -o ./app-output
